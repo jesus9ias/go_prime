@@ -8,33 +8,30 @@ import (
 func main() {
     var i int
     fmt.Print("Enter a number: ")
-    num, _ := fmt.Scanf("%d\n", &i)
-
+    fmt.Scanf("%d\n", &i)
+    num := int(i)
     isPrime := true
-
-    switch true {
+    switch {
       case num <= 0:
-        fmt.Println("No es un numero natural")
+        fmt.Println(num, "not natural number")
       case num <= 3:
-      	fmt.Println("Numero primo")
+      	fmt.Println("Prime number")
       default:
         if math.Mod(float64(num), 2) == 0 {
-  				fmt.Println("No es numero primo. No hay numeros pares primos (excepto el '2')")
+  				fmt.Println(num, "not a Prime. There is not pair prime numbers (except 2)")
   				isPrime = false
   			} else {
           limite := math.Sqrt(float64(num))
-
   				for a := float64(3); a <= limite; a += 2 {
   					if math.Mod(float64(num), a) == 0 {
-  						fmt.Println("Se encontro un factor: %d", int(a))
+  						fmt.Println("Was found factor on", int(a))
   						isPrime = false
   					}
   				}
-
   				if isPrime {
-  					fmt.Println("Conclusion: el numero %d es primo", num)
+  					fmt.Println("Number", num , "is a Prime")
   				} else {
-  					fmt.Println("Conclusion: el numero %d no es primo", num)
+  					fmt.Println("Number", num ,"is not a Prime")
   				}
   			}
     }
